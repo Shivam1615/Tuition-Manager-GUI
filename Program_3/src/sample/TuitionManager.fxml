@@ -22,9 +22,7 @@
             </left>
             <center>
                 <TextField prefHeight="25.0" prefWidth="25.0" BorderPane.alignment="CENTER">
-                    <font>
-                        <Font size="1.0" />
-                    </font></TextField>
+                    </TextField>
             </center></BorderPane>
         <BorderPane prefHeight="51.0" prefWidth="643.0">
             <left>
@@ -32,9 +30,7 @@
             </left>
             <center>
                 <TextField prefHeight="25.0" prefWidth="25.0" BorderPane.alignment="CENTER">
-                    <font>
-                        <Font size="1.0" />
-                    </font></TextField>
+                   </TextField>
             </center></BorderPane>
         <BorderPane prefHeight="45.0" prefWidth="643.0">
             <left>
