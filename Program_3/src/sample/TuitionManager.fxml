@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <BorderPane prefHeight="20.0" prefWidth="605.0">
+            <effect>
+                <Glow />
+            </effect>
+            <cursor>
+                <Cursor fx:constant="TEXT" />
+            </cursor>
+        </BorderPane>
+        <BorderPane prefHeight="46.0" prefWidth="643.0">
+            <left>
+                <Label text="First Name" BorderPane.alignment="CENTER" />
+            </left>
+            <center>
+                <TextField prefHeight="25.0" prefWidth="25.0" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font size="1.0" />
+                    </font></TextField>
+            </center></BorderPane>
+        <BorderPane prefHeight="51.0" prefWidth="643.0">
+            <left>
+                <Label text="Last Name" BorderPane.alignment="CENTER" />
+            </left>
+            <center>
+                <TextField prefHeight="25.0" prefWidth="25.0" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font size="1.0" />
+                    </font></TextField>
+            </center></BorderPane>
+        <BorderPane prefHeight="45.0" prefWidth="643.0">
+            <left>
+                <Label text="Number of Credits" BorderPane.alignment="CENTER" />
+            </left>
+            <center>
+                <TextField BorderPane.alignment="CENTER" />
+            </center></BorderPane>
+        <Pane prefHeight="120.0" prefWidth="643.0">
+            <children>
+                <RadioButton layoutX="64.0" layoutY="27.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="107.0" text="INSTATE" />
+                <RadioButton layoutX="64.0" layoutY="49.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="99.0" text="OUTSTATE" />
+                <RadioButton layoutX="64.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="INTERNATIONAL" />
+                <CheckBox layoutX="170.0" layoutY="26.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="99.0" text="Funding" />
+                <CheckBox layoutX="171.0" layoutY="50.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="126.0" text="Tri-State Student" />
+                <CheckBox layoutX="171.0" layoutY="77.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="126.0" text="Exchange Student" />
+                <Button layoutX="469.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="107.0" text="Add" />
+                <Button layoutX="469.0" layoutY="47.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="107.0" text="Remove" />
+                <Button layoutX="469.0" layoutY="82.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="107.0" text="Print" />
+                <TextField layoutX="325.0" layoutY="28.0" prefHeight="22.0" prefWidth="126.0" />
+            </children></Pane>
+        <TextArea prefHeight="285.0" prefWidth="643.0" />
+        <TextField prefHeight="4.0" prefWidth="600.0" />
+    </children>
+</VBox>
