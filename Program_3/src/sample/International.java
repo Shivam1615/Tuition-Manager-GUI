@@ -1,3 +1,4 @@
+package sample;
 /**
  * 
  * This class overrides toString, tuitionDue and includes testbed main class to
