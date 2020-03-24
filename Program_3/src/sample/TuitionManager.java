@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+package sample;
 /**
  * Manages the driver used to run I/O commands through the command line.
  * Maintains a list of students and adds/removes students according to the
