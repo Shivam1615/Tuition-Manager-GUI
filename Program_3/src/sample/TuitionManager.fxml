@@ -5,7 +5,7 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
         <BorderPane prefHeight="20.0" prefWidth="605.0">
             <effect>
@@ -20,7 +20,7 @@
                 <Label text="First Name" BorderPane.alignment="CENTER" />
             </left>
             <center>
-                <TextField prefHeight="25.0" prefWidth="413.0" BorderPane.alignment="CENTER">
+                <TextField fx:id="TextField_1" prefHeight="25.0" prefWidth="413.0" BorderPane.alignment="CENTER">
                     </TextField>
             </center></BorderPane>
         <BorderPane prefHeight="51.0" prefWidth="643.0">
@@ -28,7 +28,7 @@
                 <Label text="Last Name" BorderPane.alignment="CENTER" />
             </left>
             <center>
-                <TextField prefHeight="25.0" prefWidth="25.0" BorderPane.alignment="CENTER">
+                <TextField fx:id="TextField_2" prefHeight="25.0" prefWidth="25.0" BorderPane.alignment="CENTER">
                     </TextField>
             </center></BorderPane>
         <BorderPane prefHeight="45.0" prefWidth="643.0">
@@ -36,22 +36,21 @@
                 <Label text="Number of Credits" BorderPane.alignment="CENTER" />
             </left>
             <center>
-                <TextField BorderPane.alignment="CENTER" />
+                <TextField fx:id="TextField_3" BorderPane.alignment="CENTER" />
             </center></BorderPane>
         <Pane prefHeight="120.0" prefWidth="643.0">
             <children>
-                <RadioButton layoutX="64.0" layoutY="27.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="107.0" text="INSTATE" />
-                <RadioButton layoutX="64.0" layoutY="49.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="99.0" text="OUTSTATE" />
-                <RadioButton layoutX="64.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="INTERNATIONAL" />
-                <CheckBox layoutX="170.0" layoutY="26.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="99.0" text="Funding" />
-                <CheckBox layoutX="171.0" layoutY="50.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="126.0" text="Tri-State Student" />
-                <CheckBox layoutX="171.0" layoutY="77.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="126.0" text="Exchange Student" />
-                <Button layoutX="469.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="107.0" text="Add" />
-                <Button layoutX="469.0" layoutY="47.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="107.0" text="Remove" />
-                <Button layoutX="469.0" layoutY="82.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="107.0" text="Print" />
+                <RadioButton layoutX="64.0" layoutY="27.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="107.0" text="INSTATE" fx:id="Radio_Instate" />
+                <RadioButton layoutX="64.0" layoutY="49.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="99.0" text="OUTSTATE" fx:id="Radio_Outstate" />
+                <RadioButton layoutX="64.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="INTERNATIONAL" fx:id= "Radio_International" />
+                <CheckBox layoutX="170.0" layoutY="26.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="99.0" text="Funding" fx:id="FUNDING"/>
+                <CheckBox layoutX="171.0" layoutY="50.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="126.0" text="Tri-State Student" fx:id="TRISTATE"/>
+                <CheckBox layoutX="171.0" layoutY="77.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="126.0" text="Exchange Student" fx:id="EXCHANGE_STUDENT"/>
+                <Button layoutX="469.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="107.0" text="Add" fx:id="ADD" onAction="#handleButtonClick"/>
+                <Button layoutX="469.0" layoutY="47.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="107.0" text="Remove" fx:id="REMOVE"/>
+                <Button layoutX="469.0" layoutY="82.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="107.0" text="Print" fx:id="PRINT"/>
                 <TextField layoutX="325.0" layoutY="28.0" prefHeight="22.0" prefWidth="126.0" />
             </children></Pane>
-        <TextArea prefHeight="285.0" prefWidth="643.0" />
-        <TextField prefHeight="4.0" prefWidth="600.0" />
+        <TextArea prefHeight="285.0" prefWidth="643.0" fx:id="OUTPUT"/>
     </children>
 </VBox>
