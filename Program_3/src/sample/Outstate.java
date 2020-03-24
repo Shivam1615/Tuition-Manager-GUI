@@ -1,4 +1,4 @@
-
+package sample;
 /**
  * This class overrides the toString and the tuitionDue of the Student class to
  * obtain information about an Out of State student.
