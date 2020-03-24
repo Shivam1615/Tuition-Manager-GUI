@@ -1,3 +1,4 @@
+package sample;
 /**
  * 
  * This class overrides the toString() method in order to store information of
