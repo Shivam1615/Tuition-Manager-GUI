@@ -14,6 +14,7 @@ public class Controller {
 public TextField TextField_1;
 public TextField TextField_2;
 public TextField TextField_3;
+public TextField TextField_4;
 
 public RadioButton Radio_Instate;
 public RadioButton Radio_Outstate;
