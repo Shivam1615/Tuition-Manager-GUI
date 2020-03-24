@@ -1,3 +1,4 @@
+package sample;
 /**
  * This is an abstract class which includes an abstract method called tuition
  * due that its subclasses inherit. This class also includes the compareto
