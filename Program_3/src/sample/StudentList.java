@@ -1,3 +1,4 @@
+package sample;
 /**
  * Manages a list of students in a form of an array. Manages itself dynamically
  * as it runs out of space by a factor of GROW_SIZE.
