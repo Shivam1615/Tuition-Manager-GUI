@@ -49,7 +49,7 @@
                 <Button layoutX="469.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="107.0" text="Add" fx:id="ADD" onAction="#handleButtonClick"/>
                 <Button layoutX="469.0" layoutY="47.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="107.0" text="Remove" fx:id="REMOVE"/>
                 <Button layoutX="469.0" layoutY="82.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="107.0" text="Print" fx:id="PRINT"/>
-                <TextField layoutX="325.0" layoutY="28.0" prefHeight="22.0" prefWidth="126.0" fx:id="OUTPUT"/>
+                <TextField layoutX="325.0" layoutY="28.0" prefHeight="22.0" prefWidth="126.0" fx:id="TextField_4"/>
             </children></Pane>
         <TextArea prefHeight="285.0" prefWidth="643.0" fx:id="OUTPUT"/>
     </children>
