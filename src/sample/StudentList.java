@@ -9,8 +9,8 @@ package sample;
 public class StudentList {
     private final int NOT_FOUND = -1;
     private final int GROW_SIZE = 4;
-    private Student[] students;
-    private int numStudents;
+    public Student[] students;
+    public int numStudents;
 
     /**
      * Constructor used to initialize the student list to a given default GROW_SIZE

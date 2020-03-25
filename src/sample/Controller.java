@@ -1,40 +1,150 @@
 package sample;
 
-import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.CheckBox;
-
-import java.awt.*;
+import javafx.scene.control.TextField;
 
 public class Controller {
 
-    public TextField TextField_1;
-    public TextField TextField_2;
-    public TextField TextField_3;
-    public TextField TextField_4;
+    public StudentList students = new StudentList();
 
-    public RadioButton Radio_Instate;
-    public RadioButton Radio_Outstate;
-    public RadioButton Radio_International;
+    public TextField firstName;
+    public TextField lastName;
+    public TextField numCredits;
+    public TextField fundingValue;
 
-    public Button ADD;
-    public Button REMOVE;
-    public Button PRINT;
+    public RadioButton instate;
+    public RadioButton outstate;
+    public RadioButton international;
 
-    public CheckBox FUNDING;
-    public CheckBox TRISTATE;
-    public CheckBox EXCHANGE_STUDENT;
+    public Button add;
+    public Button remove;
+    public Button print;
 
+    public CheckBox funding;
+    public CheckBox tristate;
+    public CheckBox exchangeStudent;
 
-    public TextArea OUTPUT;
+    public ToggleGroup group;
+    public TextArea output;
 
-
-    public void handleButtonClick() {
-        OUTPUT.setText(TextField_1.getText() + " " + TextField_2.getText() + " " + TextField_3.getText());
+    public void print() {
+        if (students.isEmpty()) {
+            output.appendText("\nThere are no students in the list!\n\n");
+        } else {
+            output.appendText("\n");
+            for (int i = 0; i < students.numStudents; i++) {
+                output.appendText(students.students[i].toString() + "\n");
+            }
+            output.appendText("\n");
+        }
     }
 
+    public void add() {
+        int credits = Integer.parseInt(numCredits.getText());
+        Student newStudent;
+
+        if (group.getSelectedToggle().equals(international) && credits >= 9) {
+            newStudent = new International(firstName.getText(), lastName.getText(), credits, exchangeStudent.isSelected());
+        } else if (group.getSelectedToggle().equals(instate) && credits > 0) {
+            int funds = 0;
+            if (funding.isSelected()) funds = Integer.parseInt(fundingValue.getText());
+            newStudent = new Instate(firstName.getText(), lastName.getText(), credits, funds);
+        } else if (group.getSelectedToggle().equals(outstate) && credits > 0) {
+            newStudent = new Outstate(firstName.getText(), lastName.getText(), credits, tristate.isSelected());
+        } else {
+            output.appendText("Error: Invalid credit amount\n");
+            return;
+        }
+
+        if (students.contains(newStudent)) {
+            output.appendText(firstName.getText() + " " + lastName.getText() + " is already a student.\n");
+        } else {
+            students.add(newStudent);
+            output.appendText(firstName.getText() + " " + lastName.getText() + " has been added to the list.\n");
+        }
+    }
+
+    public void remove() {
+        Student removedStudent = new Instate(firstName.getText(), lastName.getText(), 0, 0);
+        if (!students.remove(removedStudent)) {
+            output.appendText(firstName.getText() + " " + lastName.getText() + " is not a student.\n");
+        } else {
+            output.appendText(firstName.getText() + " " + lastName.getText() + " has been removed.\n");
+        }
+    }
+
+    public void onButtonPressed(ActionEvent event) {
+        if (event.getSource().equals(print)) {
+            print();
+            return;
+        }
+        if (noErrors()) {
+            if (event.getSource().equals(add)) add();
+            else remove();
+        }
+    }
+
+    public void onRadioPressed(ActionEvent event) {
+        funding.setSelected(false);
+        tristate.setSelected(false);
+        exchangeStudent.setSelected(false);
+        fundingValue.clear();
+        if (event.getSource().equals(instate)) {
+            funding.setDisable(false);
+            tristate.setDisable(true);
+            exchangeStudent.setDisable(true);
+            fundingValue.setDisable(false);
+        } else if (event.getSource().equals(outstate)) {
+            funding.setDisable(true);
+            tristate.setDisable(false);
+            exchangeStudent.setDisable(true);
+            fundingValue.setDisable(true);
+        } else {
+            funding.setDisable(true);
+            tristate.setDisable(true);
+            exchangeStudent.setDisable(false);
+            fundingValue.setDisable(true);
+        }
+    }
+
+    public boolean noErrors() {
+        if (isNotAlpha(firstName.getText())) {
+            output.appendText("Error: First name must be alphabetic and not null!\n");
+            return false;
+        }
+
+        if (isNotAlpha(lastName.getText())) {
+            output.appendText("Error: Last Name must be alphabetic and not null!\n");
+            return false;
+        }
+
+        if (isNotNumeric(numCredits.getText())) {
+            output.appendText("Error: Number of credits must be numeric and not null!\n");
+            return false;
+        }
+
+        if (group.getSelectedToggle() == null) {
+            output.appendText("Error: You must select a toggle: Instate, OutState, or International!\n");
+            return false;
+        }
+
+        if (group.getSelectedToggle().equals(instate) && funding.isSelected() && isNotNumeric(fundingValue.getText())) {
+            output.appendText("Error: Funding value must be numeric and not null!\n");
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean isNotAlpha(String str) {
+        return !(!str.equals("") && str.matches("^[a-zA-Z]*$"));
+    }
+
+    public boolean isNotNumeric(String str) {
+        return !(!str.equals("") && str.matches("^[0-9]*$"));
+    }
 
 }
