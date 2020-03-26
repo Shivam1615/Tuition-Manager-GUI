@@ -6,6 +6,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+/**
+ * Manages driver of the TuitionManager by creating a GUI.
+ * Maintains a list of students and adds/removes students according to the
+ * inputs in terms of GUI.
+ *
+ * @author Kevin Shah
+ * @author Shivam Patel
+ */
 public class Controller {
 
     public StudentList students = new StudentList();
@@ -30,6 +38,9 @@ public class Controller {
     public ToggleGroup group;
     public TextArea output;
 
+    /**
+     * Prints out the students in the array-based list. Prints an error if no student is in the list.
+     */
     public void print() {
         if (students.isEmpty()) {
             output.appendText("\nThere are no students in the list!\n\n");
@@ -42,6 +53,9 @@ public class Controller {
         }
     }
 
+    /**
+     * Adds students to the list. It prints an error if the student already exists in the list.
+     */
     public void add() {
         int credits = Integer.parseInt(numCredits.getText());
         Student newStudent;
@@ -67,6 +81,9 @@ public class Controller {
         }
     }
 
+    /**
+     * Removes a student from the list. Prints an error if the student does not exist in the list.
+     */
     public void remove() {
         Student removedStudent = new Instate(firstName.getText(), lastName.getText(), 0, 0);
         if (!students.remove(removedStudent)) {
@@ -76,6 +93,12 @@ public class Controller {
         }
     }
 
+    /**
+     * Takes an the event argument and checks if print, add, or remove button is
+     * clicked in order to add, remove, or print the students in the list.
+     *
+     * @param event Controls event of button press and decides what to do after.
+     */
     public void onButtonPressed(ActionEvent event) {
         if (event.getSource().equals(print)) {
             print();
@@ -87,6 +110,12 @@ public class Controller {
         }
     }
 
+    /**
+     * Takes an the event argument and disables the funding amount, tri-state, funding, and exchange student
+     * radio buttons based on which button is selected.
+     *
+     * @param event Controls event of RadioButton press and decides what to do after.
+     */
     public void onRadioPressed(ActionEvent event) {
         funding.setSelected(false);
         tristate.setSelected(false);
@@ -110,6 +139,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Checks for simple errors in the GUI for numeric, alphabetic, or button/radio selection.
+     *
+     * @return Returns true or false as the return type for the function.
+     */
     public boolean noErrors() {
         if (isNotAlpha(firstName.getText())) {
             output.appendText("Error: First name must be alphabetic and not null!\n");
@@ -139,10 +173,22 @@ public class Controller {
         return true;
     }
 
+    /**
+     * Checks if the string is alphabetic or not and returns true or false based on that.
+     *
+     * @param str Is a string variable for funding amount or credits amount.
+     * @return Is the boolean variable for if string is alphabetic or not.
+     */
     public boolean isNotAlpha(String str) {
         return !(!str.equals("") && str.matches("^[a-zA-Z]*$"));
     }
 
+    /**
+     * Checks if the string is numeric or not and returns true or false based on that.
+     *
+     * @param str Is a string variable for funding amount or credits amount.
+     * @return Is the boolean variable for if string is numeric or not.
+     */
     public boolean isNotNumeric(String str) {
         return !(!str.equals("") && str.matches("^[0-9]*$"));
     }
