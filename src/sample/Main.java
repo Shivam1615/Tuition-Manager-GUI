@@ -6,6 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Is the main class for the GUI program of the TuitionManager.fxml and creates
+ * the main event of the GUI.
+ */
 public class Main extends Application {
 
     @Override
@@ -16,7 +20,11 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
+    /**
+     * Is the main method of the class.
+     *
+     * @param args Argument for launching the GUI.
+     */
     public static void main(String[] args) {
         launch(args);
     }
