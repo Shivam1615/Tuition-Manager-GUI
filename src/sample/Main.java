@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 /**
  * Is the main class for the GUI program of the TuitionManager.fxml and creates
  * the main event of the GUI.
+ *
+ * @author Kevin Shah
+ * @author Shivam Patel
  */
 public class Main extends Application {
 
